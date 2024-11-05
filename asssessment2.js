@@ -38,7 +38,7 @@ function multiplyNums(...nums){
     }, 1)
 }
 
-console.log(multiplyNums.apply(...[1,2,3,4]));
+console.log(multiplyNums.apply([1,2,3,4]));
 
 //---------------------------------------------------------------------------------------
 // 3
@@ -191,7 +191,7 @@ let promise1 = new Promise((resolve, reject)=>{
             defaultParamsAndRestOperator: function(response={status:"success"}, data={}){
                 return [...response, ...data];
             },
-            morePromises: new Promise((resolve, reject){
+            morePromises: new Promise((resolve, reject) =>{
                 resolve({
                     id:"new promise",
                     status:"success"
@@ -245,6 +245,19 @@ async function asyncPromiseFunction() {
 
 //---------------------------------------------------------------------------------------
 // 14
+
+
+function* numGenerator(n){
+    for (var i=0; i<n; i++){
+        yield i;
+    }
+}
+
+var nums = numGenerator(10);
+
+for (const n of nums){
+    console.log(n);
+}
 
 
 
